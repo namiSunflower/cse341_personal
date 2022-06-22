@@ -1,0 +1,39 @@
+{
+  "name": "cse_341",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "swagger-autogen": "node swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namiSunflower/cse341_personal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namiSunflower/cse341_personal/issues"
+  },
+  "homepage": "https://github.com/namiSunflower/cse341_personal#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "swagger-ui-express": "^4.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.0",
+    "swagger-autogen": "^2.21.3"
+  }
+}
