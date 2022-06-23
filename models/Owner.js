@@ -8,7 +8,7 @@ const ownerSchema = new Schema({
     },
     reg_time: {
         type:Date, 
-        default: Date.now()
+        default: Date.now().toLocaleDateString()
     },
     firstName: {
         type: String,
