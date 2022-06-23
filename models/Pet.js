@@ -8,7 +8,7 @@ const petSchema = new Schema({
     },
     reg_time: {
         type:Date, 
-        default: new Date()
+        default: new Date().toLocaleDateString()
     },
     name: {
         type: String,
