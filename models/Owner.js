@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const ownerSchema = new Schema({
     _id: {
         type: Number,
-        required:true
+        required:true,
+    },
+    reg_time: {
+        type:Date, 
+        default: new Date()
     },
     firstName: {
         type: String,
@@ -19,18 +23,21 @@ const ownerSchema = new Schema({
         required:true
     },
     email: {
-        type: Number
+        type: String,
+        default: ""
     },
     address: {
         type: String,
         required:true
     },
     city: {
-        type: String
+        type: String,
+        default: ""
     },
     zip: {
-        type: Number
+        type: String,
+        default: ""
     }
-});
+},{versionKey:false});
 
 module.exports = mongoose.model('Owner', ownerSchema);

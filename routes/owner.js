@@ -3,10 +3,10 @@ const router = express.Router();
 
 const ownerController = require('../controllers/owner');
 
-router.get('/owners', ownerController.getOwners);
+router.get('/', ownerController.getOwners);
 
 router.get('/:_id', ownerController.getOwner);
 
-router.post('/newOwner', ownerController.createOwner);
+router.post('/', ownerController.createOwner);
 
 module.exports = router;

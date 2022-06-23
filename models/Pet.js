@@ -6,6 +6,10 @@ const petSchema = new Schema({
         type: Number,
         required:true
     },
+    reg_time: {
+        type:Date, 
+        default: new Date()
+    },
     name: {
         type: String,
         required:true
@@ -28,11 +32,12 @@ const petSchema = new Schema({
     },
     medicationPattern: {
         type: String,
+        default: ""
     },
     boardingDuration: {
         type: Number,
         required: true
     },
-});
+},{versionKey:false});
 
 module.exports = mongoose.model('Pet', petSchema);

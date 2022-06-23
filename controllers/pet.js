@@ -6,22 +6,26 @@ const createPet = async (req, res) => {
         return;
     }
 
-    const pet = new Pet(req.body);
-
-    pet.save()
-    .then((data) => {
-      console.log(data);
-      res.status(201).send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'An error occurred while creating the pet.'
-      });
-    });
+    try{
+        const pet = await Pet.create({
+            "_id": req.body._id,
+            "name": req.body.name,
+            "age": req.body.age,
+            "petType": req.body.petType,
+            "gender": req.body.gender,
+            "feedingPattern": req.body.feedingPattern,
+            "medicationPattern": req.body.medicationPattern,
+            "boardingDuration": req.body.boardingDuration
+        });
+    
+        res.status(201).json({'message': `New pet was successfully created!`})
+    }catch(err){
+            res.status(500).json({'message': err.message})
+    }
 };
 
 const getPets = (req, res) => {
-    User.find({})
+    Pet.find({})
       .then((data) => {
         res.send(data);
       })
@@ -34,7 +38,7 @@ const getPets = (req, res) => {
   
 const getPet = (req, res) => {
     const id = req.params._id;
-    User.find({ _id: id })
+    Pet.find({ _id: id })
       .then((data) => {
         res.send(data);
       })

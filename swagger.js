@@ -2,11 +2,11 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-      title: 'My Contacts API',
-      description: 'This API shows a list of close family and friends',
+      title: 'Pet Hotel API',
+      description: 'API used to easily update/view pet & owner info for pet hotels offering pet boarding services',
     },
-    host: 'polar-spire-69659.herokuapp.com',
-    schemes: ['https'],
+    host: 'localhost:3000',
+    schemes: ['http'],
   };
 
 const outputFile = './swagger_output.json'
