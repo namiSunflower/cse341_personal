@@ -5,7 +5,7 @@ const doc = {
       title: 'Pet Hotel API',
       description: 'API used to easily update/view pet & owner info for pet hotels offering pet boarding services',
     },
-    host: 'https://pet-hotel-api-cse341.herokuapp.com',
+    host: 'pet-hotel-api-cse341.herokuapp.com',
     schemes: ['https'],
   };
 
