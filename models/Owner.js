@@ -8,7 +8,7 @@ const ownerSchema = new Schema({
     },
     reg_time: {
         type:Date, 
-        default: new Date().toDateString()
+        default: Date.now().toISOString();
     },
     firstName: {
         type: String,
