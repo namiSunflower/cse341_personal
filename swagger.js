@@ -7,7 +7,7 @@ const doc = {
     },
     // host: 'pet-hotel-api-cse341.herokuapp.com',
     // schemes: ['https'],
-    host: 'pet-hotel-api-cse341.herokuapp.com/petHotel/',
+    host: 'pet-hotel-api-cse341.herokuapp.com',
     schemes: ['https'],
   };
 
