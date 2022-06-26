@@ -4,7 +4,6 @@ const connectDB = require('./db/connect')
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
 const mongoose = require('mongoose');
-const cors = cors = require('cors');
 
 const port = process.env.PORT || 3000;
 const app = express();
