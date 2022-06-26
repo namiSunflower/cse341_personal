@@ -13,6 +13,7 @@ connectDB();
 
 app
   .use(bodyParser.json())
+  .use(bodyParser.urlencoded({extended: false}))
   .use(cors())
   .use('/', require('./routes'))
   .use('/petHotel', swaggerUi.serve, swaggerUi.setup(swaggerFile));
