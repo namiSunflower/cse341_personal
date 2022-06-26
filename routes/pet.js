@@ -9,4 +9,8 @@ router.get('/:_id', petController.getPet);
 
 router.post('/', petController.createPet);
 
+router.put('/:_id', petController.updatePet);
+
+router.delete('/:_id', petController.deletePet);
+
 module.exports = router;

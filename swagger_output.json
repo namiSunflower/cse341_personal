@@ -5,14 +5,15 @@
     "description": "API used to easily update/view pet & owner info for pet hotels offering pet boarding services",
     "version": "1.0.0"
   },
-  "host": "pet-hotel-api-cse341.herokuapp.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/owners/": {
       "get": {
+        "summary": "Use to request all owners",
         "description": "",
         "parameters": [],
         "responses": {
@@ -25,6 +26,7 @@
         }
       },
       "post": {
+        "summary": "Use to register new owner",
         "description": "",
         "parameters": [
           {
@@ -33,9 +35,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "_id": {
-                  "example": "any"
-                },
                 "firstName": {
                   "example": "any"
                 },
@@ -76,6 +75,7 @@
     },
     "/owners/{_id}": {
       "get": {
+        "summary": "Use to request specific owner by DB ID",
         "description": "",
         "parameters": [
           {
@@ -89,6 +89,88 @@
           "200": {
             "description": "OK"
           },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Use to update specific owner info by DB ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
+                },
+                "zip": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Use to delete specific owner by DB ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -97,6 +179,7 @@
     },
     "/pets/": {
       "get": {
+        "summary": "Use to request all pets",
         "description": "",
         "parameters": [],
         "responses": {
@@ -109,6 +192,7 @@
         }
       },
       "post": {
+        "summary": "Use to register a new pet",
         "description": "",
         "parameters": [
           {
@@ -117,7 +201,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "_id": {
+                "ownerKey": {
                   "example": "any"
                 },
                 "name": {
@@ -160,6 +244,7 @@
     },
     "/pets/{_id}": {
       "get": {
+        "summary": "Use to request specific pet by DB ID",
         "description": "",
         "parameters": [
           {
@@ -172,6 +257,88 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Use to update specific pet info by DB ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ownerKey": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "petType": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "feedingPattern": {
+                  "example": "any"
+                },
+                "medicationPattern": {
+                  "example": "any"
+                },
+                "boardingDuration": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Use to delete specific pet by DB ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"

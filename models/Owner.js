@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const AutoIncrementFactory = require('mongoose-sequence')(mongoose);
+const uniqueValidator = require('mongoose-unique-validator');
 
 const ownerSchema = new Schema({
-    _id: {
+    ownerKey: {
         type: Number,
-        required:true,
+        unique: true
     },
     reg_time: {
         type:Date, 
@@ -24,7 +26,8 @@ const ownerSchema = new Schema({
     },
     email: {
         type: String,
-        default: ""
+        default: "",
+        unique: true
     },
     address: {
         type: String,
@@ -39,5 +42,8 @@ const ownerSchema = new Schema({
         default: ""
     }
 },{versionKey:false});
+
+ownerSchema.plugin(AutoIncrementFactory, {inc_field:'ownerKey'});
+ownerSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Owner', ownerSchema);

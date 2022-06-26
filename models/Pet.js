@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const petSchema = new Schema({
-    _id: {
+    ownerKey: {
         type: Number,
-        required:true
+        required: true
     },
     reg_time: {
         type:Date, 
@@ -15,7 +15,7 @@ const petSchema = new Schema({
         required:true
     },
     age: {
-        type: Number,
+        type: String,
         required:true
     },
     petType: {
@@ -39,5 +39,6 @@ const petSchema = new Schema({
         required: true
     },
 },{versionKey:false});
+
 
 module.exports = mongoose.model('Pet', petSchema);

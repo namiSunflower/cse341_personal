@@ -5,8 +5,10 @@ const doc = {
       title: 'Pet Hotel API',
       description: 'API used to easily update/view pet & owner info for pet hotels offering pet boarding services',
     },
-    host: 'pet-hotel-api-cse341.herokuapp.com',
-    schemes: ['https'],
+    // host: 'pet-hotel-api-cse341.herokuapp.com',
+    // schemes: ['https'],
+    host: 'localhost:3000',
+    schemes: ['http'],
   };
 
 const outputFile = './swagger_output.json'
