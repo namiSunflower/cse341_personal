@@ -5,10 +5,10 @@
     "description": "API used to easily update/view pet & owner info for pet hotels offering pet boarding services",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "pet-hotel-api-cse341.herokuapp.com/petHotel/",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/owners/": {

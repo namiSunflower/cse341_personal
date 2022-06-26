@@ -7,8 +7,8 @@ const doc = {
     },
     // host: 'pet-hotel-api-cse341.herokuapp.com',
     // schemes: ['https'],
-    host: 'localhost:3000',
-    schemes: ['http'],
+    host: 'pet-hotel-api-cse341.herokuapp.com/petHotel/',
+    schemes: ['https'],
   };
 
 const outputFile = './swagger_output.json'
