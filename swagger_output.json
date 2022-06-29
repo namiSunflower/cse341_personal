@@ -7,10 +7,21 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/"
+      "url": "https://pet-hotel-api-cse341.herokuapp.com/"
     }
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/register/": {
       "post": {
         "summary": "Use to register new owner",
@@ -70,6 +81,17 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/logout/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -442,6 +464,42 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/fail": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/success/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
