@@ -11,7 +11,7 @@ const doc = {
     schemes: ['https'],
     securityDefinitions: {
       bearerAuth: {
-          type: 'http',
+          type: 'https',
           scheme: 'bearer',
           bearerFormat: 'JWT'
       },

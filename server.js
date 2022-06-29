@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 require('./config/passport')(passport)
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
+const distDir = __dirname + "/dist/";
 //const cors = require('cors)
 
 const port = process.env.PORT || 3000;
@@ -46,5 +47,6 @@ app
   })
 
 app.use('/', require('./routes'))
+  .use(express.static(distDir))
   .use('/petHotel', swaggerUi.serve, swaggerUi.setup(swaggerFile));
   
