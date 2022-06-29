@@ -31,6 +31,7 @@ app
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   })
+  .enable('trust proxy')
   .use(session({
     secret: 'keyboard cat',
     resave: false,
