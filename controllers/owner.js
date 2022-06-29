@@ -25,6 +25,9 @@ const createOwner = async (req, res) => {
 
 const getOwners = (req, res) => {
   //#swagger.summary = Use to request all owners
+   /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
     Owner.find({})
       .then((data) => {
         res.send(data);

@@ -1,4 +1,4 @@
-const swaggerAutogen = require('swagger-autogen')();
+const swaggerAutogen = require('swagger-autogen')({openapi: '3.0.0'});
 
 const doc = {
     info: {
@@ -9,8 +9,17 @@ const doc = {
     // schemes: ['https'],
     host: 'pet-hotel-api-cse341.herokuapp.com',
     schemes: ['https'],
-  };
-
+    securityDefinitions: {
+      bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+      },
+      security: [{
+        bearerAuth: []
+    }]
+  }
+};
 const outputFile = './swagger_output.json'
 const endpointsFiles = ['./routes/index.js']
 

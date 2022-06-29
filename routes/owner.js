@@ -2,19 +2,16 @@ const express = require('express');
 const router = express.Router();
 const {body, validationResult } = require('express-validator');
 const OwnerValidate = require('../models/OwnerValidate');
-
+const verify = require("../middlewares/verifyToken")
 const ownerController = require('../controllers/owner');
+const {ensureAuth} = require('../middlewares/googleAuth')
 
-router.get('/', ownerController.getOwners);
+router.get('/', ensureAuth, verify.auth, ownerController.getOwners);
 
-router.get('/:_id', ownerController.getOwner);
+router.get('/:_id',  ensureAuth, ownerController.getOwner);
 
 router.post('/', 
-body('firstName').matches(/^[A-Za-z\s]+$/).withMessage('Invalid first name! Name must be alphabetic.'),
-body('lastName').isLength({min:2}).withMessage('Invalid last name length! Last name must be at least 2 characters long'),
-body('lastName').matches(/^[A-Za-z\s]+$/).withMessage('Invalid last name! Name must be alphabetic.'),
-body('email').isEmail().normalizeEmail().withMessage('Invalid email format!'),
-body('phone').isLength({min: 6, max: 10}).withMessage('Invalid phone length! Phone must be at least 6 digits long and will not exceed 10 digits.'),
+OwnerValidate,
      (req, res, next) => {
         // Finds the validation errors in this request and wraps them in an object with handy functions
         const errors = validationResult(req);
@@ -23,7 +20,7 @@ body('phone').isLength({min: 6, max: 10}).withMessage('Invalid phone length! Pho
     }else{
         next()
     }}
-    , ownerController.createOwner);
+    ,  ensureAuth, ownerController.createOwner);
 
 router.put('/:_id',[
     OwnerValidate,
@@ -34,8 +31,8 @@ router.put('/:_id',[
           return res.status(400).json({ errors: errors.array()});
         }else{
             next()
-    }}],ownerController.updateOwner);
+    }}],  ensureAuth, ownerController.updateOwner);
 
-router.delete('/:_id', ownerController.deleteOwner);
+router.delete('/:_id', ensureAuth, ownerController.deleteOwner);
 
 module.exports = router;
