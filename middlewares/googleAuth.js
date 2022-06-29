@@ -5,7 +5,7 @@ module.exports = {
             return next();
         }else{
             console.log("Not Authenticated");
-            res.redirect('/home');
+            res.redirect('/');
         }
     }
 }
