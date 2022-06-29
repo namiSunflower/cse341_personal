@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/', require('./home'))
+router.use('/home', require('./home'))
 router.use('/register', require('./register'));
 router.use('/login', require('./loginAdmin'));
 router.use('/logout', require('./logout'));
