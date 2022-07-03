@@ -44,6 +44,8 @@ const registerAdmin = async (req, res) => {
 
     //Create and assign a token
     const token = jwt.sign({_id: userExist._id}, process.env.TOKEN_SECRET)
+
+
     res.header('auth-token', token).send(token);
   } 
 

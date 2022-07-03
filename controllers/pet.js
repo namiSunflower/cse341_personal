@@ -2,6 +2,10 @@ const Pet = require("../models/Pet");
 
 const createPet = async (req, res) => {
   //#swagger.summary = Use to register a new pet
+    //#swagger.summary = Use to update specific owner info by DB ID
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
     if (!req.body.ownerKey || !req.body.name || !req.body.age || !req.body.petType || !req.body.gender || !req.body.feedingPattern || !req.body.boardingDuration){
         res.status(400).send({message: 'Please make sure to fill-up required data!'});
         return;
@@ -58,6 +62,10 @@ const getPet = (req, res) => {
 
 const updatePet = (req, res) => {
   //#swagger.summary = Use to update specific pet info by DB ID
+    //#swagger.summary = Use to update specific owner info by DB ID
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
   const id = req.params._id;
     const {ownerKey,name, age, petType, gender, feedingPattern, medicationPattern, boardingDuration} = req.body;
     const updatedPet = Pet.findByIdAndUpdate({_id: id},{ownerKey, name, age, petType, gender, feedingPattern, medicationPattern, boardingDuration})
@@ -72,6 +80,10 @@ const updatePet = (req, res) => {
 
 const deletePet = (req, res) => {
   //#swagger.summary = Use to delete specific pet by DB ID
+    //#swagger.summary = Use to update specific owner info by DB ID
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
   const id = req.params._id;
     const result = Pet.findByIdAndDelete({_id:id})
     .then(data => {

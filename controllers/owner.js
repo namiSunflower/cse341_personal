@@ -2,6 +2,9 @@ const Owner = require("../models/Owner");
 
 const createOwner = async (req, res) => {
   //#swagger.summary = Use to register new owner
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
     if (!req.body.firstName || !req.body.lastName || !req.body.phone || !req.body.address){
         res.status(400).send({message: 'Please make sure to fill-up all required data!'});
         return;
@@ -25,9 +28,6 @@ const createOwner = async (req, res) => {
 
 const getOwners = (req, res) => {
   //#swagger.summary = Use to request all owners
-   /* #swagger.security = [{
-               "bearerAuth": []
-        }] */
     Owner.find({})
       .then((data) => {
         res.send(data);
@@ -60,6 +60,9 @@ const getOwner = (req, res) => {
 
 const updateOwner = (req, res) => {
   //#swagger.summary = Use to update specific owner info by DB ID
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
     const id = req.params._id;
       const {firstName, lastName, phone, email, address, city, zip} = req.body;
       const updatedOwner = Owner.findByIdAndUpdate({_id: id},{firstName, lastName, phone, email, address, city, zip})
@@ -74,6 +77,9 @@ const updateOwner = (req, res) => {
   
 const deleteOwner = (req, res) => {
   //#swagger.summary = Use to delete specific owner by DB ID
+     /* #swagger.security = [{
+               "bearerAuth": []
+        }] */
     const id = req.params._id;
       const result = Owner.findByIdAndDelete({_id:id})
       .then(data => {
